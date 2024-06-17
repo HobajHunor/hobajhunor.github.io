@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with embedded data.",
+  "width": 640,
+  "height": 360,
+  "title": "",
+  "data": {
+    "url": "https://raw.githubusercontent.com/HobajHunor/hobajhunor.github.io/main/germany155.csv"
+  },
+  "params": [
+    {
+      "name": "MinYear",
+      "value": 2011,
+      "bind": {
+        "input": "range",
+        "min": 2011,
+        "max": 2021,
+        "step": 1,
+        "name": "Select Min Year:"
+      }
+    },
+    {
+      "name": "MaxYear",
+      "value": 2021,
+      "bind": {
+        "input": "range",
+        "min": 2011,
+        "max": 2021,
+        "step": 1,
+        "name": "Select Max Year:"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": {
+        "timeUnit": "year",
+        "field": "year",
+        "range": ["MinYear", "MaxYear"]
+      }
+    }
+  ],
+  "mark": {"type": "arc", "padAngle": 0.004},
+  "encoding": {
+    "theta": {"field": "yield", "type": "quantitative", "aggregate": "count"},
+    "color": {"field": "legend", "type": "nominal", "title": "Márkák"}
+  },
+  "config": {}
+}

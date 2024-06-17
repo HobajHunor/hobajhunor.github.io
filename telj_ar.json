@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stock prices of 5 Tech Companies over Time.",
+  "width": 640,
+  "height": 360,
+  "title": "Teljesítmény összefúggése az árral",
+  "data": {
+    "url": "https://raw.githubusercontent.com/HobajHunor/hobajhunor.github.io/main/germany155.csv"
+  },
+  "mark": {"type": "trail", "color": "purple"},
+  "encoding": {
+    "x": {
+      "field": "hp",
+      "type": "quantitative",
+      "title": "Lóerő",
+      "scale": {"domain": [0, 860]}
+    },
+    "y": {
+      "field": "price",
+      "type": "quantitative",
+      "scale": {"type": "log"},
+      "title": "Eladási ár"
+    },
+    "size": {
+      "field": "price",
+      "type": "quantitative",
+      "color": {"field": "symbol", "type": "nominal"},
+      "title": "Ár skála"
+    }
+  },
+  "config": {}
+}
