@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 500,
+  "title": "Az ár és a futásteljesítmény összefüggése",
+  "data": {
+    "url": "https://raw.githubusercontent.com/HobajHunor/hobajhunor.github.io/main/germany155.csv"
+  },
+  "mark": "point",
+  "encoding": {
+    "opacity": {
+      "condition": {
+        "test": "test(regexp(search_input,'i'),datum.Name)",
+        "value": 0.8
+      },
+      "value": 0.1
+    },
+    "tooltip": {"field": "make", "type": "nominal"},
+    "x": {
+      "field": "mileage",
+      "type": "quantitative",
+      "title": "Kilométer óra állása (km)",
+      "scale": {"domain": [0, 700000]}
+    },
+    "y": {
+      "field": "price",
+      "type": "quantitative",
+      "title": "Eladási ár (€)",
+      "scale": {"domain": [0, 750000]}
+    },
+    "color": {
+      "field": "legend",
+      "type": "nominal",
+      "title": "Márkák",
+      "legend": {"orient": "bottom"}
+    }
+  },
+  "params": [
+    {
+      "name": "search_input",
+      "bind": {"input": "search_input", "placeholder": "make", "name": "Kereső"}
+    }
+  ],
+  "config": {}
+}

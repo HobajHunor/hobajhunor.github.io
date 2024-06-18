@@ -1,0 +1,180 @@
+
+
+<!DOCTYPE html>
+<html> 
+    
+<head>    
+    
+    <link rel="stylesheet" type="text/css" href="s2_example1.css">
+    <title>Gyakorló webfejlesztő feladat
+    </title> 
+
+    <!-- This is a link to the vega-lite which we're using to make graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body> 
+    <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
+        <!-- This is a header, it is the largest text on the page -->
+        Németországi autóeladások 2011 és 2021 között
+    </h1>
+    <p style="margin-top: 0px; color: rgb(65, 65, 172)">
+        <!-- we're setting the margin to 0px so the header and authour name are close together -->
+        Hobaj Hunor | <a href="https://www.facebook.com/hunor.hobaj/">Facebook</a> | <a
+            href="https://github.com/HobajHunor">GitHub</a>
+    </p>
+    <h3 class="small"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
+    Az adatok bemutatása 
+        <br></br>
+        <P ALIGN=Justify> A személyautók fontos részét képezik a mindennapjainknak, mivel az egyszerű szállítóeszközökön kívül sok más szerepük 
+        is van a mai világban. Az eutóeladások jó indikátorát tudják nyújtani az adott ország gazdasági fejlettségének, 
+        a környezettudatosság jelentőségének, de az autógyárak és autókereskedők számára is megmutatja, milyen modellekre van kereslet hosszútávon.
+        Nekünk romániai személyeknek is érdekesek ezek az adatok, mivel használtautó vásárlásakor lesz egy képünk arról, hogy
+        milyen paraméterekkel rendelkező modellek behozására van esély a legfontosabb ilyen autó-export-er országból, Németországból. Ez az adatbázis 
+        segít egy képet kapni az eladásra kínált autók paraméterei és az áruk közötti kapcsolatról. </P>
+        <P ALIGN=Justify> Az adatokat Európa egyik legnagyobb autókereskedésének, az AutoScout24-nek az adatbázisából nyertem ki. Ez azt jelenti, 
+        hogy nem az egész másodlagos német autópiacra kapunk rálátást, hanem csak egy nagyobb szegmensére. A kereskedés adatbázisa
+         46 345 db autóeladást tartalmaz. Az autómárkák, típusok és állapotjellemzők szélles skálákon mozognak, így reprezentatívnak merem állítani 
+        az adatbázis tartalmát.</P>
+        <br> </br>
+    </h3>
+
+  
+    <section>
+        <div class="chart-description">
+            <h2>Meghajtási formák</h2>
+            <p> 
+                Ezt az ábrát a gépjárművek károsanyag kibocsájtás-változását vizsgáló statisztikai elemzésekre lehetne felhasználni.
+                Egy trendet vélhetünk felfedezni a dízel üzemű autók csökkenése, valamint az elektromos és hibrid autók növekedése terén.
+            </p>
+            
+        </div>
+        <figure id="Location1"></figure> 
+        <p> 
+            Ebből az ábrából arra lehet következtetni egyrészt, hogy az úgynevezett ,,dízel botránynak" jelentős hatása volt 
+            az autópiacra, másrészt, hogy a németországi vásárlók egyre nagyobb hányada választ a dízelek helyett alternatív 
+            meghajtású és benzines autókat.
+            Az autóeladások volumene nem változott jelentősen, ami valójában azt jelenti, hogy nincs hajlandóság lemondani az 
+            autózásról a környezetvédelem javára. A 2021-es visszaesést valószínüleg a koronavírus járvány által kiváltott 
+            gazdasági visszaesés okozta.
+        </p>
+    </section>
+
+
+
+    <section>
+        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
+            <h2>A márkák megoszlása</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+               Azok az autómárkák vannak túlsúlyban, amikhez egyértelműen a középkategóriás, egyszerűen fenntartható, a tömegből nem 
+               kitűnni akaró modelleket szoktuk asszociálni. Jelentős még a kis- és az alsókategóriás autóeladások aránya is, bár nehéz pontos határokat
+                húzni ezek között ezekből az adatokból. Ennek a három kategóriának az összes aránya 78%, míg a prémium kategóriába tartozóké 18%.
+                Az ,,Other" kategóriába azok a márkák kerültek, amikből jelentősen kevesebbet adtak el, így a jelentőségük nem olyan 
+                számottevő. Mindenféle kategóriába tartozó autó modellek találhatóak itt. 
+            
+            
+            </p>
+
+            <p>
+                Ezek az eredmények érdekesek mind az autógyárak, a kereskedők és a magánszemélyek számára egyaránt.
+            </p>
+        </div>
+        <figure id="Location2"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+
+
+
+
+    <section>
+        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
+            <h2>Átlagos eladási ára az egyes márkáknak</h2>
+            <p> 
+              Jól kivehetőek, hogy az egyes márkák általában milyen szintre lövik be a termékeiket. Még az értékcsökkenés után is csupán az árat összehasonlítva
+              a gyártók a használt autók terén hasonló sorrendben állnak fel, mint az új autók árazásánál. Összevetve az autók eredeti árával megkapnánk hogy átlagosan mennyivel 
+              csökken az autók értéke az évek alatt, áttételesen mennyi ideig lehet használni még az adott járművet.
+              
+
+
+            </p>
+            <p>
+                Az első 6 helyen a híres német prémiumok helyezkednek el, ami nem meglepő Németországban. Magas az életszínvonal és 
+            a Volvón kívül a többi márka mind ,,hazai" gyártmányú autókat kínál, ami miatt magasak az eladások az országban. A Ferrafi, McLare, a Lamborghini, Bentley, Aston Martin 
+                meg a hasonló alacsony példányszámban jelen lévő, de annál értékesebb prémium márkák miatt található az ,,Other" kategória
+                 a második legértékesebb autók helyén. Az átlag számítása eléggé
+                 torzítja a nagy szórásból adódó különbségeket. Ennek az oszlopnak a tartalmát egy részletesebb elemzés során természetesen ki lehet majd bontani.
+
+            </p>
+        </div>
+        <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+
+
+
+   
+
+    <section>
+        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
+            <h2>Eladási ár és motor teljesítmény</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+              A személyautók eladási árát logaritmálnom kellett a szemléletesség kedvéért. Az eredeti adatokkal túlságosan nagy kilengések 
+              voltak tapasztalhatóak a vizualizációban. Nagyon nagy volt az adatok szórása, ami most is ugyanúgy észrevehető. Majdnem egy 
+              fehérzaj folyamat rajzolódik ki előttünk egy erősen amennyiben levonjuk azt a meredek trendet, amit kirajzolnak az értékek.
+              Ez a trend arról árulkodik, hogy igenis van összefüggés az erősebb autók és az eladási ár között. A vásárlók érzékenyek a 
+              teljesítménynövekedésre. Minél nagyobb, annál többet hajlandóak érte kiadni.
+              Azért nem egyértelműen egy trend ez az egyenes, mivel egy autó értékét sokkal több paraméter határozza meg, nemcsak 
+              egyetlen alkatrész egyetlen paramétere. Feltételezhető, hogy egy harmadik, kívül álló tényező felelős ezért az összefüggésért. 
+              Lehet nem a motor mérete miatt választják a drágább modelt, hanem mert a kényelmesebb autókba annyival jobb motort adnak alapfelszereltségként.
+            
+            </p>
+        </div>
+        <figure id="Location4"></figure> 
+    </section>
+
+
+    <section>
+        <div class="chart-description"> <!-- we are grouping the title and description together so we can style them together -->
+            <h2>Eladási ár és futásteljesítmény</h2>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                Ezen a diagrammon azt láthatjuk, hogy az autók futásteljesítményük növekedése során rohamosan csökken a pénzben kifejezett értékük, majd egy adott 
+                pont után már nem bír olyan nagy jelentőséggel a megtett kilométerszám. Az ár viszont nagyban függ az autók márkájától is. 
+                Az újonnan is alacsony árú autók nem veszítenek annyit az árukból, mint a prémium márkák. Egy könyökdiagrammhoz hasonlít, ahol megállapítható, hogy átlagosan 40 000 km-nél és 100 000 km-nél van két nagy törés az autók árában.
+            
+            </p>
+        </div>
+        <figure id="Location5"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+    </section>
+
+
+    
+
+    
+
+
+
+
+
+ 
+    <script>
+        // This is a comment in JavaScript - it's a different language to HTML and CSS
+
+        var figure_1_spec = "fuel_stack_oszlop.json"
+        var figure_2_spec = "ar_futas.json"
+        var figure_3_spec = "markak_aranya.json"
+        var figure_4_spec = "telj_ar.json"
+        var figure_5_spec = "markak_atlag_ara.json"
+        
+
+        vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
+        vegaEmbed('#Location2', figure_3_spec)
+        vegaEmbed('#Location3', figure_5_spec)
+        vegaEmbed('#Location4', figure_4_spec)
+        vegaEmbed('#Location5', figure_2_spec)
+
+
+    </script>
+
+</body>
+    
+</html>
